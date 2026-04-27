@@ -53,7 +53,6 @@
 </script>
 
 <deck-stage width="1920" height="1080">
-
   <!-- ============================================================
        01 · TITLE
        ============================================================ -->
@@ -231,19 +230,19 @@
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 44px 80px;">
           <div>
-            <div class="stat-big" style="font-size: 108px;">26</div>
+            <div class="stat-big" style="font-size: 108px;"><span data-count-to="26" data-count-delay="500" data-count-duration="1100">0</span></div>
             <div class="stat-label">Years of innovation</div>
           </div>
           <div>
-            <div class="stat-big" style="font-size: 108px;">44%</div>
+            <div class="stat-big" style="font-size: 108px;"><span data-count-to="44" data-count-delay="650" data-count-duration="1300">0</span>%</div>
             <div class="stat-label">of Global Fortune 500</div>
           </div>
           <div>
-            <div class="stat-big" style="font-size: 108px;">100<span style="color: var(--orange);">+</span></div>
+            <div class="stat-big" style="font-size: 108px;"><span data-count-to="100" data-count-delay="800" data-count-duration="1500">0</span><span style="color: var(--orange);">+</span></div>
             <div class="stat-label">Countries served</div>
           </div>
           <div>
-            <div class="stat-big" style="font-size: 108px;">31k<span style="color: var(--orange);">+</span></div>
+            <div class="stat-big" style="font-size: 108px;"><span data-count-to="31" data-count-delay="950" data-count-duration="1500">0</span>k<span style="color: var(--orange);">+</span></div>
             <div class="stat-label">Customers worldwide</div>
           </div>
         </div>
@@ -263,219 +262,6 @@
       </div>
     </div>
     <div class="footer"><span class="page-no">04 · Context</span><span>SAFEQ Cloud · TechU Virtual</span></div>
-  </section>
-
-  <!-- ============================================================
-       04 · SCALING FOR HCA — 150K+ PROOF POINT
-       ============================================================ -->
-  <section class="slide" data-label="Scaling for HCA">
-    <img src="assets/safeq-cloud-logo-orange.svg" class="logo-tl" alt="SAFEQ Cloud" />
-    <div class="frame">
-      <div class="eyebrow">Scalability · Performance</div>
-      <h1 class="display h-title" style="margin-bottom: 28px;">Scale isn't a question. It's the baseline.</h1>
-      <p class="perex" style="margin-bottom: 48px; max-width: 1600px;">
-        Our largest SAFEQ Cloud tenant — in Europe — runs <strong>150,000+ devices</strong> in production, every day. That's more than 2× HCA Healthcare's projected full-scale rollout of 50K printers and 20K label printers.
-      </p>
-
-      <!-- Three big stats -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin-bottom: 40px;">
-        <div style="padding: 40px 40px; border-right: 1px solid var(--border);">
-          <div class="stat-big" style="font-size: 140px; color: var(--orange);">150k<span style="font-size: 0.5em; color: var(--ink);">+</span></div>
-          <div class="stat-label">Devices · EU tenant today</div>
-          <p style="font-size: 18px; color: var(--grey-7); margin-top: 8px;">Live production, scaling for years.</p>
-        </div>
-        <div style="padding: 40px 40px; border-right: 1px solid var(--border);">
-          <div class="stat-big" style="font-size: 140px; color: var(--orange);">70k</div>
-          <div class="stat-label">HCA Healthcare full scale</div>
-          <p style="font-size: 18px; color: var(--grey-7); margin-top: 8px;">50K printers + 20K label printers.</p>
-        </div>
-        <div style="padding: 40px 40px;">
-          <div class="stat-big" style="font-size: 140px; color: var(--orange);">3<span style="font-size: 0.5em; color: var(--ink);">×</span></div>
-          <div class="stat-label">Availability zones, every DC</div>
-          <p style="font-size: 18px; color: var(--grey-7); margin-top: 8px;">Geographically separated · auto-failover.</p>
-        </div>
-      </div>
-
-      <!-- 3 supporting cards -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;">
-        <div>
-          <div class="step-num">01 · Triple-zone</div>
-          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; margin: 8px 0;">Always operational</div>
-          <div style="font-size: 18px; color: var(--grey-11); line-height: 1.45;">If a zone fails, traffic auto-routes to the healthiest. Self-healing detects and resolves in seconds.</div>
-        </div>
-        <div>
-          <div class="step-num">02 · Containers</div>
-          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; margin: 8px 0;">Massive auto-scale</div>
-          <div style="font-size: 18px; color: var(--grey-11); line-height: 1.45;">Containerized workload scales horizontally with demand. No VM overhead. Same architecture that runs the EU tenant.</div>
-        </div>
-        <div>
-          <div class="step-num">03 · Updates</div>
-          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; margin: 8px 0;">Bi-weekly · Validated</div>
-          <div style="font-size: 18px; color: var(--grey-11); line-height: 1.45;">Automated rollouts with validation and instant rollback. Customer-facing impact: minutes, not hours.</div>
-        </div>
-      </div>
-    </div>
-    <div class="footer"><span class="page-no">04 · Discussion</span><span>Scaling for HCA · 150K+ proof point</span></div>
-  </section>
-
-  <!-- ============================================================
-       05 · CONTAINERIZATION — THE ENGINE OF SCALE
-       ============================================================ -->
-  <section class="slide" data-label="Containerization">
-    <img src="assets/safeq-cloud-logo-orange.svg" class="logo-tl" alt="SAFEQ Cloud" />
-    <div class="frame">
-      <div class="eyebrow">Technology · Container architecture</div>
-      <h1 class="display h-title" style="margin-bottom: 28px;">How we scale: containerization.</h1>
-      <p class="perex" style="margin-bottom: 48px; max-width: 1600px;">
-        SAFEQ Cloud runs inside containers — think of each as a standardized shipping box for an application, with everything it needs packed inside. It's the same architecture Google built to run at planetary scale, and it's why our largest tenant runs <strong>150K+ devices</strong> with no degradation.
-      </p>
-
-      <!-- Visual: traditional vs containers -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 48px;">
-        <div style="border: 2px solid var(--border); border-radius: 8px; padding: 32px; background: #FAFAFA;">
-          <div class="caption" style="margin-bottom: 12px; color: var(--grey-7);">Traditional on-premise</div>
-          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 28px; line-height: 1.05; margin-bottom: 12px;">App on bare server</div>
-          <p style="font-size: 18px; line-height: 1.45; color: var(--grey-11); margin: 0;">Apps installed directly on servers — or in costly virtual machines that ship a full OS each time. Scaling means provisioning more hardware. Updates mean downtime windows.</p>
-        </div>
-        <div style="border: 2px solid var(--orange); border-radius: 8px; padding: 32px; background: var(--orange-wash); position: relative;">
-          <div class="caption" style="margin-bottom: 12px; color: var(--orange);">SAFEQ Cloud</div>
-          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 28px; line-height: 1.05; margin-bottom: 12px;">App in a container</div>
-          <p style="font-size: 18px; line-height: 1.45; color: var(--grey-11); margin: 0;">A standardized shipping box for the application — code, libraries, config, even the database. Multiple containers safely share the same OS without VM overhead.</p>
-        </div>
-      </div>
-
-      <!-- 3 benefits -->
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
-        <div>
-          <div class="step-num">01 · Auto-scale</div>
-          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; margin: 8px 0;">Massive · Horizontal</div>
-          <div style="font-size: 18px; color: var(--grey-11); line-height: 1.45;">Spin up more containers in seconds as demand grows. No VM provisioning, no infrastructure delay.</div>
-        </div>
-        <div>
-          <div class="step-num">02 · Load balancing</div>
-          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; margin: 8px 0;">Always healthiest</div>
-          <div style="font-size: 18px; color: var(--grey-11); line-height: 1.45;">Traffic auto-routes to the healthiest zone and least-loaded container. No hot spots, no manual tuning.</div>
-        </div>
-        <div>
-          <div class="step-num">03 · Self-healing</div>
-          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; margin: 8px 0;">Detect &amp; replace</div>
-          <div style="font-size: 18px; color: var(--grey-11); line-height: 1.45;">A failing container is detected and replaced automatically. Updates roll out incrementally with instant rollback.</div>
-        </div>
-      </div>
-    </div>
-    <div class="footer"><span class="page-no">05 · Discussion</span><span>Containerization · The engine of scale</span></div>
-  </section>
-
-  <!-- ============================================================
-       06 · THREE SAFEQ CLOUD DEPLOYMENT OPTIONS
-       ============================================================ -->
-  <section class="slide slide--wash" data-label="Three deployment options">
-    <img src="assets/safeq-cloud-logo-orange.svg" class="logo-tl" alt="SAFEQ Cloud" />
-    <div class="frame">
-      <div class="eyebrow">Deployment options · Choose your control level</div>
-      <h1 class="display h-title" style="margin-bottom: 28px;">Three ways to deploy SAFEQ Cloud.</h1>
-      <p class="perex" style="margin-bottom: 64px; max-width: 1600px;">
-        A spectrum, based on how much data control and operational ownership you need — from standard multi-tenant cloud to fully managed on-premise. <strong>For HCA, we recommend Reserved.</strong>
-      </p>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; flex: 1; align-items: stretch;">
-        <!-- Multi-Tenant -->
-        <div class="card" style="padding: 44px 36px; display: flex; flex-direction: column; gap: 16px;">
-          <div class="caption" style="margin-bottom: 0; color: var(--grey-7);">Standard cloud</div>
-          <h3 style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 38px; line-height: 1.05; margin: 0;">Multi-Tenant</h3>
-          <p style="font-size: 20px; line-height: 1.45; color: var(--grey-11); margin: 0;">Shared SAFEQ Cloud with full automation, three-zone HA, and bi-weekly updates. The default for most customers.</p>
-          <ul style="list-style: none; padding: 0; margin: 12px 0 0; font-size: 18px; color: var(--grey-11);">
-            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--grey-7);"></span>Per-device licensing</li>
-            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--grey-7);"></span>Y Soft–operated DCs worldwide</li>
-            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--grey-7);"></span>Standard SLA</li>
-          </ul>
-        </div>
-
-        <!-- Reserved (RECOMMENDED) -->
-        <div class="card card--orange" style="padding: 56px 36px 44px; display: flex; flex-direction: column; gap: 16px; position: relative; box-shadow: 0 14px 40px rgba(255,102,0,0.22); transform: translateY(-12px);">
-          <span style="position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; padding: 8px 18px; border-radius: 4px; white-space: nowrap;">★ Recommended for HCA</span>
-          <div class="caption" style="margin-bottom: 0; color: rgba(255,255,255,0.85);">Dedicated</div>
-          <h3 style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 38px; line-height: 1.05; margin: 0; color: #fff;">Reserved</h3>
-          <p style="font-size: 20px; line-height: 1.45; color: #fff; margin: 0; opacity: 0.96;">Dedicated VMs in a dual-zone setup, in the Y Soft–operated DC of HCA's choice. Same platform, isolated environment, premium SLA.</p>
-          <ul style="list-style: none; padding: 0; margin: 12px 0 0; font-size: 18px; color: #fff;">
-            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:#fff;"></span>Flat per-customer / year</li>
-            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:#fff;"></span>Customer-chosen DC (AWS or OTC)</li>
-            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:#fff;"></span>Premium SLA included</li>
-          </ul>
-        </div>
-
-        <!-- Managed On-Prem -->
-        <div class="card" style="padding: 44px 36px; display: flex; flex-direction: column; gap: 16px;">
-          <div class="caption" style="margin-bottom: 0; color: var(--grey-7);">Maximum control</div>
-          <h3 style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 38px; line-height: 1.05; margin: 0;">Managed On-Prem</h3>
-          <p style="font-size: 20px; line-height: 1.45; color: var(--grey-11); margin: 0;">SAFEQ Cloud deployed into HCA-controlled infrastructure. Print and scan data never leaves your network.</p>
-          <ul style="list-style: none; padding: 0; margin: 12px 0 0; font-size: 18px; color: var(--grey-11);">
-            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--grey-7);"></span>Customer-operated infrastructure</li>
-            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--grey-7);"></span>Print &amp; scan data stay on-prem</li>
-            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--grey-7);"></span>Customer secures the environment</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer"><span class="page-no">06 · Discussion</span><span>Three deployment options · Reserved is recommended for HCA</span></div>
-  </section>
-
-  <!-- ============================================================
-       07 · RESERVED INFRASTRUCTURE FOR HCA
-       ============================================================ -->
-  <section class="slide slide--wash" data-label="Reserved Infrastructure for HCA">
-    <img src="assets/safeq-cloud-logo-orange.svg" class="logo-tl" alt="SAFEQ Cloud" />
-    <div class="frame">
-      <div class="eyebrow">Recommended direction · Reserved Infrastructure</div>
-      <h1 class="display h-title" style="margin-bottom: 28px;">Reserved Infrastructure · Dedicated for HCA.</h1>
-      <p class="perex" style="margin-bottom: 56px; max-width: 1600px;">
-        For an environment of HCA's scale and sensitivity, the likely direction is <strong>dedicated reserved infrastructure</strong>: your own dual-zone SAFEQ Cloud, in the data centre of your choice, separated from the multi-tenant cloud — without trading availability, security cadence, or upgrade rhythm.
-      </p>
-
-      <div class="pillars" style="flex: 1; gap: 32px;">
-        <div class="pillar" style="padding: 44px 36px;">
-          <div style="display: flex; align-items: baseline; gap: 16px;">
-            <div class="step-num" style="font-size: 26px;">01</div>
-            <div class="pillar-title" style="font-size: 30px;">Dedicated &amp; Sovereign</div>
-          </div>
-          <ul>
-            <li>Dedicated virtual machines, dual-zone setup</li>
-            <li>Geographic separation between zones</li>
-            <li>Y&nbsp;Soft–operated DC of HCA's choice (AWS or Open Telekom Cloud)</li>
-            <li>Full observability and uptime guarantee</li>
-          </ul>
-        </div>
-        <div class="pillar" style="padding: 44px 36px;">
-          <div style="display: flex; align-items: baseline; gap: 16px;">
-            <div class="step-num" style="font-size: 26px;">02</div>
-            <div class="pillar-title" style="font-size: 30px;">Predictable Licensing</div>
-          </div>
-          <ul>
-            <li>Flat fee per customer per year</li>
-            <li>No per-device or per-user metering</li>
-            <li>Premium SLA always included</li>
-            <li>Costs scale with risk profile, not deployment size</li>
-          </ul>
-        </div>
-        <div class="pillar" style="padding: 44px 36px;">
-          <div style="display: flex; align-items: baseline; gap: 16px;">
-            <div class="step-num" style="font-size: 26px;">03</div>
-            <div class="pillar-title" style="font-size: 30px;">Fully Managed Security</div>
-          </div>
-          <ul>
-            <li>Automated bi-weekly updates with rollback</li>
-            <li>MXDR — 24/7 monitoring</li>
-            <li>Automated vulnerability scanning</li>
-            <li>Y&nbsp;Soft access operated under SOC 2 controls</li>
-          </ul>
-        </div>
-      </div>
-
-      <p style="font-family: var(--font-sans); font-style: italic; font-size: 22px; color: var(--grey-7); margin-top: 28px; max-width: 1500px;">
-        "Trust us" is not a strategy — architecture is. Reserved Infrastructure delivers data control comparable to on-premise, with the cadence and resilience of cloud. Penetration testing remains HCA's responsibility.
-      </p>
-    </div>
-    <div class="footer"><span class="page-no">05 · Discussion</span><span>Reserved Infrastructure · Recommended for HCA</span></div>
   </section>
 
   <!-- ============================================================
@@ -664,28 +450,6 @@
   </section>
 
   <!-- ============================================================
-       07 · 2025 THE YEAR OF CLOUD PRINT (big moment slide)
-       ============================================================ -->
-  <section class="slide slide--dark" data-label="Year of cloud print">
-    <!-- Orange circle bleed, offset so it does not cross headline -->
-    <div class="circle" style="width: 900px; height: 900px; right: -420px; top: -280px; opacity: 0.92; z-index: 1;"></div>
-    <div class="circle circle--turq" style="width: 400px; height: 400px; left: -180px; bottom: -180px; opacity: 0.7; z-index: 1;"></div>
-
-    <img src="assets/ysoft-icon-white.png" alt="" style="position: absolute; top: 64px; left: 110px; height: 56px; z-index: 3;" />
-
-    <div class="frame" style="justify-content: center; z-index: 2;">
-      <div class="eyebrow" style="color: #fff; margin-bottom: 32px;">A tipping point</div>
-      <h1 class="display" style="color: #fff; font-size: 260px; line-height: 0.9; margin-bottom: 32px;">
-        2025.<br/><span style="color: var(--orange);">The year</span><br/>of cloud print.
-      </h1>
-      <p class="body-lg" style="color: rgba(255,255,255,0.85); max-width: 1200px; margin: 0;">
-        For the first time, the majority of new print projects chose cloud — driven by IT simplification, security maturity, and a clearer total cost picture.
-      </p>
-    </div>
-    <div class="footer on-dark"><span class="page-no">08 · Context</span><span style="color: rgba(255,255,255,0.5);">SAFEQ Cloud · TechU Virtual</span></div>
-  </section>
-
-  <!-- ============================================================
        08 · WHAT IS SAFEQ CLOUD?  (3 pillars overview)
        ============================================================ -->
   <section class="slide slide--wash" data-label="What is SAFEQ Cloud">
@@ -734,6 +498,284 @@
       </div>
     </div>
     <div class="footer"><span class="page-no">09 · Product</span><span>SAFEQ Cloud · TechU Virtual</span></div>
+  </section>
+
+  <!-- ============================================================
+       05 · CONTAINERIZATION — THE ENGINE OF SCALE
+       ============================================================ -->
+  <section class="slide" data-label="Containerization">
+    <img src="assets/safeq-cloud-logo-orange.svg" class="logo-tl" alt="SAFEQ Cloud" />
+    <div class="frame">
+      <div class="eyebrow">Technology · Container architecture</div>
+      <h1 class="display h-title split-words" style="margin-bottom: 28px;">How we scale: containerization.</h1>
+      <p class="perex" style="margin-bottom: 48px; max-width: 1600px;">
+        SAFEQ Cloud runs inside containers — think of each as a standardized shipping box for an application, with everything it needs packed inside. It's the same architecture Google built to run at planetary scale, and it's why our largest tenant runs <strong>150K+ devices</strong> with no degradation.
+      </p>
+
+      <!-- Visual: traditional vs containers -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 48px;">
+        <div style="border: 2px solid var(--border); border-radius: 8px; padding: 32px; background: #FAFAFA;">
+          <div class="caption" style="margin-bottom: 12px; color: var(--grey-7);">Traditional on-premise</div>
+          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 28px; line-height: 1.05; margin-bottom: 12px;">App on bare server</div>
+          <p style="font-size: 18px; line-height: 1.45; color: var(--grey-11); margin: 0;">Apps installed directly on servers — or in costly virtual machines that ship a full OS each time. Scaling means provisioning more hardware. Updates mean downtime windows.</p>
+        </div>
+        <div style="border: 2px solid var(--orange); border-radius: 8px; padding: 32px; background: var(--orange-wash); position: relative;">
+          <div class="caption" style="margin-bottom: 12px; color: var(--orange);">SAFEQ Cloud</div>
+          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 28px; line-height: 1.05; margin-bottom: 12px;">App in a container</div>
+          <p style="font-size: 18px; line-height: 1.45; color: var(--grey-11); margin: 0;">A standardized shipping box for the application — code, libraries, config, even the database. Multiple containers safely share the same OS without VM overhead.</p>
+        </div>
+      </div>
+
+      <!-- 3 benefits -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+        <div>
+          <div class="step-num">01 · Auto-scale</div>
+          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; margin: 8px 0;">Massive · Horizontal</div>
+          <div style="font-size: 18px; color: var(--grey-11); line-height: 1.45;">Spin up more containers in seconds as demand grows. No VM provisioning, no infrastructure delay.</div>
+        </div>
+        <div>
+          <div class="step-num">02 · Load balancing</div>
+          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; margin: 8px 0;">Always healthiest</div>
+          <div style="font-size: 18px; color: var(--grey-11); line-height: 1.45;">Traffic auto-routes to the healthiest zone and least-loaded container. No hot spots, no manual tuning.</div>
+        </div>
+        <div>
+          <div class="step-num">03 · Self-healing</div>
+          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; margin: 8px 0;">Detect &amp; replace</div>
+          <div style="font-size: 18px; color: var(--grey-11); line-height: 1.45;">A failing container is detected and replaced automatically. Updates roll out incrementally with instant rollback.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span class="page-no">05 · Discussion</span><span>Containerization · The engine of scale</span></div>
+  </section>
+
+  <!-- ============================================================
+       06 · CONTAINERS IN MOTION — LIVE ANIMATED STAGE
+       ============================================================ -->
+  <section class="slide" data-label="Containers in motion">
+    <img src="assets/safeq-cloud-logo-orange.svg" class="logo-tl" alt="SAFEQ Cloud" />
+    <div class="frame" style="padding: 130px 110px 92px;">
+      <div class="eyebrow">How it works · Live</div>
+      <h1 class="display h-title split-words" style="margin-bottom: 14px; font-size: 84px;">Containers in motion.</h1>
+      <p class="perex" style="margin-bottom: 28px; max-width: 1500px; font-size: 26px;">
+        The same architecture running our largest tenant — watch SAFEQ Cloud scale out, peak, and self-heal.
+      </p>
+
+      <!-- Animated stage -->
+      <div class="ctn-stage">
+        <!-- Counter row -->
+        <div class="ctn-counters">
+          <div class="ctn-counter">
+            <div class="caption ctn-counter-label">Active containers</div>
+            <div class="ctn-counter-num" style="color: var(--orange);"><span class="ctn-active">0</span></div>
+          </div>
+          <div class="ctn-counter">
+            <div class="caption ctn-counter-label">Requests / sec</div>
+            <div class="ctn-counter-num" style="color: var(--ink);"><span class="ctn-rps">0</span></div>
+          </div>
+          <div class="ctn-counter">
+            <div class="caption ctn-counter-label">Self-heals (cycle)</div>
+            <div class="ctn-counter-num" style="color: var(--turq);"><span class="ctn-heals">0</span></div>
+          </div>
+        </div>
+
+        <!-- Container grid (slots injected by JS) -->
+        <div class="ctn-grid"></div>
+
+        <!-- Request stream (dots injected by JS) -->
+        <div class="ctn-traffic-row">
+          <div class="ctn-traffic-label">Live request stream</div>
+          <div class="ctn-traffic"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span class="page-no">06 · Discussion</span><span>Containerization · Live · Same architecture as the EU tenant</span></div>
+  </section>
+
+  <!-- ============================================================
+       04 · SCALING FOR HCA — 150K+ PROOF POINT
+       ============================================================ -->
+  <section class="slide" data-label="Scaling for HCA">
+    <img src="assets/safeq-cloud-logo-orange.svg" class="logo-tl" alt="SAFEQ Cloud" />
+    <div class="frame">
+      <div class="eyebrow">Scalability · Performance</div>
+      <h1 class="display h-title split-words" style="margin-bottom: 28px;">Scale isn't a question. It's the baseline.</h1>
+      <p class="perex" style="margin-bottom: 48px; max-width: 1600px;">
+        Our largest SAFEQ Cloud tenant — in Europe — runs <strong>150,000+ devices</strong> in production, every day. That's more than 2× HCA Healthcare's projected full-scale rollout of 50K printers and 20K label printers.
+      </p>
+
+      <!-- Three big stats -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin-bottom: 40px;">
+        <div style="padding: 40px 40px; border-right: 1px solid var(--border);">
+          <div class="stat-big" style="font-size: 140px; color: var(--orange);"><span data-count-to="150" data-count-delay="500" data-count-duration="1700">0</span>k<span style="font-size: 0.5em; color: var(--ink);">+</span></div>
+          <div class="stat-label">Devices · EU tenant today</div>
+          <p style="font-size: 18px; color: var(--grey-7); margin-top: 8px;">Live production, scaling for years.</p>
+        </div>
+        <div style="padding: 40px 40px; border-right: 1px solid var(--border);">
+          <div class="stat-big" style="font-size: 140px; color: var(--orange);"><span data-count-to="70" data-count-delay="700" data-count-duration="1500">0</span>k</div>
+          <div class="stat-label">HCA Healthcare full scale</div>
+          <p style="font-size: 18px; color: var(--grey-7); margin-top: 8px;">50K printers + 20K label printers.</p>
+        </div>
+        <div style="padding: 40px 40px;">
+          <div class="stat-big" style="font-size: 140px; color: var(--orange);"><span data-count-to="3" data-count-delay="900" data-count-duration="900">0</span><span style="font-size: 0.5em; color: var(--ink);">×</span></div>
+          <div class="stat-label">Availability zones, every DC</div>
+          <p style="font-size: 18px; color: var(--grey-7); margin-top: 8px;">Geographically separated · auto-failover.</p>
+        </div>
+      </div>
+
+      <!-- 3 supporting cards -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;">
+        <div>
+          <div class="step-num">01 · Triple-zone</div>
+          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; margin: 8px 0;">Always operational</div>
+          <div style="font-size: 18px; color: var(--grey-11); line-height: 1.45;">If a zone fails, traffic auto-routes to the healthiest. Self-healing detects and resolves in seconds.</div>
+        </div>
+        <div>
+          <div class="step-num">02 · Containers</div>
+          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; margin: 8px 0;">Massive auto-scale</div>
+          <div style="font-size: 18px; color: var(--grey-11); line-height: 1.45;">Containerized workload scales horizontally with demand. No VM overhead. Same architecture that runs the EU tenant.</div>
+        </div>
+        <div>
+          <div class="step-num">03 · Updates</div>
+          <div style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 24px; margin: 8px 0;">Bi-weekly · Validated</div>
+          <div style="font-size: 18px; color: var(--grey-11); line-height: 1.45;">Automated rollouts with validation and instant rollback. Customer-facing impact: minutes, not hours.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span class="page-no">04 · Discussion</span><span>Scaling for HCA · 150K+ proof point</span></div>
+  </section>
+
+  <!-- ============================================================
+       07 · THREE SAFEQ CLOUD DEPLOYMENT OPTIONS
+       ============================================================ -->
+  <section class="slide slide--wash" data-label="Three deployment options">
+    <img src="assets/safeq-cloud-logo-orange.svg" class="logo-tl" alt="SAFEQ Cloud" />
+    <div class="frame">
+      <div class="eyebrow">Deployment options · Choose your control level</div>
+      <h1 class="display h-title split-words" style="margin-bottom: 28px;">Three ways to deploy SAFEQ Cloud.</h1>
+      <p class="perex" style="margin-bottom: 64px; max-width: 1600px;">
+        A spectrum, based on how much data control and operational ownership you need — from standard multi-tenant cloud to fully managed on-premise. <strong>For HCA, we recommend Reserved.</strong>
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; flex: 1; align-items: stretch;">
+        <!-- Multi-Tenant -->
+        <div class="card" style="padding: 44px 36px; display: flex; flex-direction: column; gap: 16px;">
+          <div class="caption" style="margin-bottom: 0; color: var(--grey-7);">Standard cloud</div>
+          <h3 style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 38px; line-height: 1.05; margin: 0;">Multi-Tenant</h3>
+          <p style="font-size: 20px; line-height: 1.45; color: var(--grey-11); margin: 0;">Shared SAFEQ Cloud with full automation, three-zone HA, and bi-weekly updates. The default for most customers.</p>
+          <ul style="list-style: none; padding: 0; margin: 12px 0 0; font-size: 18px; color: var(--grey-11);">
+            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--grey-7);"></span>Per-device licensing</li>
+            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--grey-7);"></span>Y Soft–operated DCs worldwide</li>
+            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--grey-7);"></span>Standard SLA</li>
+          </ul>
+        </div>
+
+        <!-- Reserved (RECOMMENDED) -->
+        <div class="card card--orange card--recommended" style="padding: 56px 36px 44px; display: flex; flex-direction: column; gap: 16px; position: relative; box-shadow: 0 14px 40px rgba(255,102,0,0.22); transform: translateY(-12px);">
+          <span class="badge-recommended" style="position: absolute; top: -18px; left: 50%; background: var(--ink); color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; padding: 8px 18px; border-radius: 4px; white-space: nowrap; z-index: 2;">★ Recommended for HCA</span>
+          <div class="caption" style="margin-bottom: 0; color: rgba(255,255,255,0.85);">Dedicated</div>
+          <h3 style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 38px; line-height: 1.05; margin: 0; color: #fff;">Reserved</h3>
+          <p style="font-size: 20px; line-height: 1.45; color: #fff; margin: 0; opacity: 0.96;">Dedicated VMs in a dual-zone setup, in the Y Soft–operated DC of HCA's choice. Same platform, isolated environment, premium SLA.</p>
+          <ul style="list-style: none; padding: 0; margin: 12px 0 0; font-size: 18px; color: #fff;">
+            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:#fff;"></span>Flat per-customer / year</li>
+            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:#fff;"></span>Customer-chosen DC (AWS or OTC)</li>
+            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:#fff;"></span>Premium SLA included</li>
+          </ul>
+        </div>
+
+        <!-- Managed On-Prem -->
+        <div class="card" style="padding: 44px 36px; display: flex; flex-direction: column; gap: 16px;">
+          <div class="caption" style="margin-bottom: 0; color: var(--grey-7);">Maximum control</div>
+          <h3 style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 38px; line-height: 1.05; margin: 0;">Managed On-Prem</h3>
+          <p style="font-size: 20px; line-height: 1.45; color: var(--grey-11); margin: 0;">SAFEQ Cloud deployed into HCA-controlled infrastructure. Print and scan data never leaves your network.</p>
+          <ul style="list-style: none; padding: 0; margin: 12px 0 0; font-size: 18px; color: var(--grey-11);">
+            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--grey-7);"></span>Customer-operated infrastructure</li>
+            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--grey-7);"></span>Print &amp; scan data stay on-prem</li>
+            <li style="padding: 6px 0 6px 18px; position: relative;"><span style="position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--grey-7);"></span>Customer secures the environment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span class="page-no">06 · Discussion</span><span>Three deployment options · Reserved is recommended for HCA</span></div>
+  </section>
+
+  <!-- ============================================================
+       07 · RESERVED INFRASTRUCTURE FOR HCA
+       ============================================================ -->
+  <section class="slide slide--wash" data-label="Reserved Infrastructure for HCA">
+    <img src="assets/safeq-cloud-logo-orange.svg" class="logo-tl" alt="SAFEQ Cloud" />
+    <div class="frame">
+      <div class="eyebrow">Recommended direction · Reserved Infrastructure</div>
+      <h1 class="display h-title" style="margin-bottom: 28px;">Reserved Infrastructure · Dedicated for HCA.</h1>
+      <p class="perex" style="margin-bottom: 56px; max-width: 1600px;">
+        For an environment of HCA's scale and sensitivity, the likely direction is <strong>dedicated reserved infrastructure</strong>: your own dual-zone SAFEQ Cloud, in the data centre of your choice, separated from the multi-tenant cloud — without trading availability, security cadence, or upgrade rhythm.
+      </p>
+
+      <div class="pillars" style="flex: 1; gap: 32px;">
+        <div class="pillar" style="padding: 44px 36px;">
+          <div style="display: flex; align-items: baseline; gap: 16px;">
+            <div class="step-num" style="font-size: 26px;">01</div>
+            <div class="pillar-title" style="font-size: 30px;">Dedicated &amp; Sovereign</div>
+          </div>
+          <ul>
+            <li>Dedicated virtual machines, dual-zone setup</li>
+            <li>Geographic separation between zones</li>
+            <li>Y&nbsp;Soft–operated DC of HCA's choice (AWS or Open Telekom Cloud)</li>
+            <li>Full observability and uptime guarantee</li>
+          </ul>
+        </div>
+        <div class="pillar" style="padding: 44px 36px;">
+          <div style="display: flex; align-items: baseline; gap: 16px;">
+            <div class="step-num" style="font-size: 26px;">02</div>
+            <div class="pillar-title" style="font-size: 30px;">Predictable Licensing</div>
+          </div>
+          <ul>
+            <li>Flat fee per customer per year</li>
+            <li>No per-device or per-user metering</li>
+            <li>Premium SLA always included</li>
+            <li>Costs scale with risk profile, not deployment size</li>
+          </ul>
+        </div>
+        <div class="pillar" style="padding: 44px 36px;">
+          <div style="display: flex; align-items: baseline; gap: 16px;">
+            <div class="step-num" style="font-size: 26px;">03</div>
+            <div class="pillar-title" style="font-size: 30px;">Fully Managed Security</div>
+          </div>
+          <ul>
+            <li>Automated bi-weekly updates with rollback</li>
+            <li>MXDR — 24/7 monitoring</li>
+            <li>Automated vulnerability scanning</li>
+            <li>Y&nbsp;Soft access operated under SOC 2 controls</li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="font-family: var(--font-sans); font-style: italic; font-size: 22px; color: var(--grey-7); margin-top: 28px; max-width: 1500px;">
+        "Trust us" is not a strategy — architecture is. Reserved Infrastructure delivers data control comparable to on-premise, with the cadence and resilience of cloud. Penetration testing remains HCA's responsibility.
+      </p>
+    </div>
+    <div class="footer"><span class="page-no">05 · Discussion</span><span>Reserved Infrastructure · Recommended for HCA</span></div>
+  </section>
+
+  <!-- ============================================================
+       07 · 2025 THE YEAR OF CLOUD PRINT (big moment slide)
+       ============================================================ -->
+  <section class="slide slide--dark" data-label="Year of cloud print">
+    <!-- Orange circle bleed, offset so it does not cross headline -->
+    <div class="circle" style="width: 900px; height: 900px; right: -420px; top: -280px; opacity: 0.92; z-index: 1;"></div>
+    <div class="circle circle--turq" style="width: 400px; height: 400px; left: -180px; bottom: -180px; opacity: 0.7; z-index: 1;"></div>
+
+    <img src="assets/ysoft-icon-white.png" alt="" style="position: absolute; top: 64px; left: 110px; height: 56px; z-index: 3;" />
+
+    <div class="frame" style="justify-content: center; z-index: 2;">
+      <div class="eyebrow" style="color: #fff; margin-bottom: 32px;">A tipping point</div>
+      <h1 class="display" style="color: #fff; font-size: 260px; line-height: 0.9; margin-bottom: 32px;">
+        2025.<br/><span style="color: var(--orange);">The year</span><br/>of cloud print.
+      </h1>
+      <p class="body-lg" style="color: rgba(255,255,255,0.85); max-width: 1200px; margin: 0;">
+        For the first time, the majority of new print projects chose cloud — driven by IT simplification, security maturity, and a clearer total cost picture.
+      </p>
+    </div>
+    <div class="footer on-dark"><span class="page-no">08 · Context</span><span style="color: rgba(255,255,255,0.5);">SAFEQ Cloud · TechU Virtual</span></div>
   </section>
 
   <!-- ============================================================
@@ -984,11 +1026,6 @@
   </section>
 
   <!-- ============================================================
-       13 · (dropped redundant slide)
-       Replaced with a transition slide: pillar 1 → pillar 2
-       ============================================================ -->
-
-  <!-- ============================================================
        14 · PILLAR 2 · SECURITY (divider)
        ============================================================ -->
   <section class="slide slide--dark" data-label="Pillar 2 divider">
@@ -1203,6 +1240,7 @@
     <div class="footer on-dark"><span class="page-no" style="color: rgba(255,255,255,0.6);">Close</span><span style="color: rgba(255,255,255,0.5);">Value Alignment Meeting · SAFEQ Cloud</span></div>
   </section>
 
+
 </deck-stage>
 
 <!-- ============================================================
@@ -1280,15 +1318,16 @@
   // Slide count = 23. Indices 0-based.
   const CHAPTERS = [
     { name: 'Welcome',     range: [0, 3] },   // Title, Team, Agenda, Y Soft at a glance
-    { name: 'Discussion',  range: [4, 7] },   // Scaling, Containers, Three options, Reserved
-    { name: 'Backup',      range: [8, 20] },  // 13 reference slides
-    { name: 'Close',       range: [21, 21] }, // Thank you
+    { name: 'Story',       range: [4, 7] },   // Hardware, Why cloud, Market, What is SAFEQ
+    { name: 'Discussion',  range: [8, 12] },  // Containers, Live, Scaling, Three opts, Reserved
+    { name: 'Backup',      range: [13, 21] }, // 9 reference slides
+    { name: 'Close',       range: [22, 22] }, // Thank you
   ];
 
   const rail = document.getElementById('chapter-rail');
   const chaptersWrap = rail.querySelector('.rail-chapters');
   const fillEl = rail.querySelector('.rail-progress-fill');
-  const totalSlides = 22;
+  const totalSlides = 23;
 
   // ---- Patch deck-stage so its scale calculation reserves rail height
   //      Otherwise slide content paints behind the fixed rail.
@@ -1393,6 +1432,203 @@
   deck.addEventListener('slidechange', (e) => update(e.detail.index));
   // init
   setTimeout(() => update(deck.index || 0), 50);
+
+  // ---- Slide-entry effects: counter animation + word splitting --------
+  // Respect prefers-reduced-motion — no count-up, just final value.
+  const PREFERS_REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function splitWordsOnce(slide) {
+    slide.querySelectorAll('.display.split-words').forEach((el) => {
+      if (el.dataset.wordsSplit) return;
+      // Walk child nodes; wrap each word in <span class="word" style="--i: N">.
+      // Preserve <br> and other element children (e.g., inline color spans).
+      let i = 0;
+      const fragments = [];
+      el.childNodes.forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const parts = node.nodeValue.split(/(\s+)/);
+          parts.forEach((part) => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) {
+              fragments.push(document.createTextNode(part));
+            } else {
+              const span = document.createElement('span');
+              span.className = 'word';
+              span.style.setProperty('--i', i++);
+              span.textContent = part;
+              fragments.push(span);
+            }
+          });
+        } else if (node.nodeName === 'BR') {
+          fragments.push(node.cloneNode(true));
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          // Wrap an existing element node as a single "word" so its inner styling stays.
+          const wrap = document.createElement('span');
+          wrap.className = 'word';
+          wrap.style.setProperty('--i', i++);
+          wrap.appendChild(node.cloneNode(true));
+          fragments.push(wrap);
+        }
+      });
+      // replaceChildren() clears + appends in one safe op (no innerHTML).
+      el.replaceChildren(...fragments);
+      el.dataset.wordsSplit = '1';
+    });
+  }
+
+  function formatNumber(value, target, decimals) {
+    if (decimals > 0) return value.toFixed(decimals);
+    if (target >= 10000) return Math.round(value).toLocaleString('en-US');
+    return Math.round(value).toString();
+  }
+
+  function animateCounter(el) {
+    const to = parseFloat(el.dataset.countTo);
+    if (!Number.isFinite(to)) return;
+    const from = parseFloat(el.dataset.countFrom || 0);
+    const duration = parseInt(el.dataset.countDuration || 1500, 10);
+    const decimals = parseInt(el.dataset.countDecimals || 0, 10);
+    if (PREFERS_REDUCED) { el.textContent = formatNumber(to, to, decimals); return; }
+    const start = performance.now();
+    function step(now) {
+      const t = Math.min((now - start) / duration, 1);
+      // easeOutCubic — eases hard at the end, very satisfying
+      const eased = 1 - Math.pow(1 - t, 3);
+      const current = from + (to - from) * eased;
+      el.textContent = formatNumber(current, to, decimals);
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function triggerSlideEntryEffects(slide) {
+    if (!slide) return;
+    splitWordsOnce(slide);
+    slide.querySelectorAll('[data-count-to]').forEach((el) => {
+      const delay = parseInt(el.dataset.countDelay || 600, 10);
+      el.style.setProperty('--count-delay', delay);
+      const from = parseFloat(el.dataset.countFrom || 0);
+      const decimals = parseInt(el.dataset.countDecimals || 0, 10);
+      el.textContent = formatNumber(from, parseFloat(el.dataset.countTo), decimals);
+      setTimeout(() => animateCounter(el), delay);
+    });
+  }
+
+  deck.addEventListener('slidechange', (e) => triggerSlideEntryEffects(e.detail.slide));
+  setTimeout(() => triggerSlideEntryEffects(deck.querySelector('[data-deck-active]')), 80);
+
+  // ---- Containers-in-motion: live animated stage ---------------------
+  const ctnSlide = document.querySelector('section[data-label="Containers in motion"]');
+  if (ctnSlide) {
+    const grid = ctnSlide.querySelector('.ctn-grid');
+    const traffic = ctnSlide.querySelector('.ctn-traffic');
+    const SLOTS = 36;          // 12 × 3
+    const DOTS = 14;
+    const PEAK = 32;
+
+    for (let i = 0; i < SLOTS; i++) {
+      const s = document.createElement('div');
+      s.className = 'ctn-slot';
+      s.dataset.state = 'empty';
+      grid.appendChild(s);
+    }
+    for (let i = 0; i < DOTS; i++) {
+      const d = document.createElement('div');
+      d.className = 'ctn-dot';
+      d.style.animationDelay = (i * (2.6 / DOTS)).toFixed(3) + 's';
+      traffic.appendChild(d);
+    }
+
+    const slotEls = grid.querySelectorAll('.ctn-slot');
+    const activeEl = ctnSlide.querySelector('.ctn-active');
+    const rpsEl = ctnSlide.querySelector('.ctn-rps');
+    const healsEl = ctnSlide.querySelector('.ctn-heals');
+
+    let active = new Set();
+    let healCount = 0;
+    let timer = null;
+    let startMs = 0;
+    let lastSpawn = 0;
+    let lastFail = 0;
+
+    const setState = (i, st) => { slotEls[i].dataset.state = st; };
+    const pickEmpty = () => {
+      const e = [];
+      for (let i = 0; i < SLOTS; i++) if (!active.has(i)) e.push(i);
+      return e.length ? e[Math.floor(Math.random() * e.length)] : -1;
+    };
+    const pickActive = () => {
+      const a = [...active];
+      return a.length ? a[Math.floor(Math.random() * a.length)] : -1;
+    };
+    function spawn() {
+      const i = pickEmpty();
+      if (i < 0) return;
+      active.add(i);
+      setState(i, 'healing');
+      setTimeout(() => { if (active.has(i)) setState(i, 'healthy'); }, 360);
+    }
+    function fail() {
+      const i = pickActive();
+      if (i < 0) return;
+      setState(i, 'failed');
+      setTimeout(() => {
+        if (active.has(i)) {
+          setState(i, 'healing');
+          setTimeout(() => { if (active.has(i)) setState(i, 'healthy'); }, 360);
+        }
+      }, 480);
+      healCount++;
+    }
+    function despawn() {
+      const i = pickActive();
+      if (i < 0) return;
+      active.delete(i);
+      setState(i, 'empty');
+    }
+    function updateCounters() {
+      activeEl.textContent = active.size;
+      rpsEl.textContent = (active.size * 247 + Math.floor(Math.random() * 80)).toLocaleString('en-US');
+      healsEl.textContent = healCount;
+    }
+    function tick() {
+      const now = performance.now();
+      const t = (now - startMs) % 22000;
+      if (t < 4000) {
+        if (active.size < 12 && now - lastSpawn > 240) { spawn(); lastSpawn = now; }
+      } else if (t < 8000) {
+        if (active.size < 22 && now - lastSpawn > 320) { spawn(); lastSpawn = now; }
+      } else if (t < 12000) {
+        if (active.size < PEAK && now - lastSpawn > 420) { spawn(); lastSpawn = now; }
+      } else if (t < 18000) {
+        if (now - lastFail > 900 + Math.random() * 600) { fail(); lastFail = now; }
+      } else {
+        if (active.size > 12 && now - lastSpawn > 380) { despawn(); lastSpawn = now; }
+      }
+      updateCounters();
+    }
+    function startAnim() {
+      if (timer) return;
+      active.clear();
+      healCount = 0;
+      for (let i = 0; i < SLOTS; i++) setState(i, 'empty');
+      updateCounters();
+      startMs = performance.now();
+      lastSpawn = startMs;
+      lastFail = startMs;
+      timer = setInterval(tick, 180);
+      tick();
+    }
+    function stopAnim() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    deck.addEventListener('slidechange', (e) => {
+      if (e.detail.slide === ctnSlide) startAnim();
+      else stopAnim();
+    });
+    if (deck.querySelector('[data-deck-active]') === ctnSlide) startAnim();
+  }
 
   // ---- Tweaks wiring -------------------------------------------------
   const panel = document.getElementById('tweaks-panel');
