@@ -217,26 +217,6 @@
   </section>
 
   <!-- ============================================================
-       04 · BACKUP DIVIDER
-       Reference material — accessible during the discussion as needed.
-       ============================================================ -->
-  <section class="slide slide--dark" data-label="Backup">
-    <div class="circle" style="width: 1100px; height: 1100px; right: -280px; top: -280px;"></div>
-    <img src="assets/ysoft-icon-white.png" alt="" style="position: absolute; top: 64px; left: 110px; height: 56px; z-index: 3;" />
-
-    <div class="frame" style="justify-content: center; z-index: 2;">
-      <div class="eyebrow" style="color: var(--orange);">Reference material</div>
-      <h1 class="display" style="color: #fff; font-size: 200px; max-width: 1500px; margin-bottom: 40px;">
-        Backup slides.
-      </h1>
-      <p class="body-lg" style="color: rgba(255,255,255,0.8); max-width: 1100px;">
-        Use as needed during the discussion — Y&nbsp;Soft and SAFEQ Cloud context, infrastructure savings, security posture, and data residency.
-      </p>
-    </div>
-    <div class="footer on-dark"><span class="page-no" style="color: rgba(255,255,255,0.6);">04 · Backup</span><span style="color: rgba(255,255,255,0.5);">Reference material</span></div>
-  </section>
-
-  <!-- ============================================================
        03 · WHO IS Y SOFT?
        ============================================================ -->
   <section class="slide slide--wash" data-label="Who is Y Soft">
@@ -1087,14 +1067,14 @@
   // Slide count = 23. Indices 0-based.
   const CHAPTERS = [
     { name: 'Welcome',  range: [0, 2] },   // Title, Team, Agenda
-    { name: 'Backup',   range: [3, 17] },  // Backup divider + 14 reference slides
-    { name: 'Close',    range: [18, 18] }, // Thank you
+    { name: 'Backup',   range: [3, 16] },  // 14 reference slides
+    { name: 'Close',    range: [17, 17] }, // Thank you
   ];
 
   const rail = document.getElementById('chapter-rail');
   const chaptersWrap = rail.querySelector('.rail-chapters');
   const fillEl = rail.querySelector('.rail-progress-fill');
-  const totalSlides = 19;
+  const totalSlides = 18;
 
   // ---- Patch deck-stage so its scale calculation reserves rail height
   //      Otherwise slide content paints behind the fixed rail.
