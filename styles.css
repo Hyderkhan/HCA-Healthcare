@@ -857,6 +857,92 @@ body.hide-footer .footer { display: none; }
 }
 
 /* =========================================================
+   Team slide entrance: hero pop + grid iris-in + hover lift
+   ========================================================= */
+
+/* Resting state — hidden until slide activates */
+[data-deck-slide] .team-hero-photo,
+[data-deck-slide] .team-hero-name,
+[data-deck-slide] .team-hero-role,
+[data-deck-slide] .team-hero-loc,
+[data-deck-slide] .team-card-photo,
+[data-deck-slide] .team-card-info {
+  opacity: 0;
+}
+
+/* Hero Václav: scale-pop with overshoot, then perpetual halo pulse */
+[data-deck-active] .team-hero-photo {
+  animation:
+    team-hero-pop 900ms cubic-bezier(.34,1.56,.64,1) 200ms both,
+    team-hero-halo 3.6s ease-out 1500ms infinite;
+  transform-origin: center;
+  border-radius: 50%;
+}
+@keyframes team-hero-pop {
+  0%   { opacity: 0; transform: scale(0.45); }
+  60%  { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes team-hero-halo {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(255,102,0,0.45); }
+  60%      { box-shadow: 0 0 0 22px rgba(255,102,0,0); }
+}
+
+[data-deck-active] .team-hero-name { animation: team-rise 600ms cubic-bezier(.22,.9,.25,1)  700ms both; }
+[data-deck-active] .team-hero-role { animation: team-rise 600ms cubic-bezier(.22,.9,.25,1)  820ms both; }
+[data-deck-active] .team-hero-loc  { animation: team-rise 600ms cubic-bezier(.22,.9,.25,1)  940ms both; }
+@keyframes team-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Grid cards — staggered iris-in (scale + slight rotateY for life) */
+[data-deck-active] .team-card { perspective: 800px; }
+[data-deck-active] .team-card-photo {
+  animation: team-card-iris 800ms cubic-bezier(.34,1.56,.64,1) calc(1100ms + var(--i, 0) * 110ms) both;
+  transform-origin: center;
+}
+[data-deck-active] .team-card-info {
+  animation: team-info-slide 600ms cubic-bezier(.22,.9,.25,1) calc(1240ms + var(--i, 0) * 110ms) both;
+}
+@keyframes team-card-iris {
+  0%   { opacity: 0; transform: scale(0.4) rotateY(-30deg); }
+  60%  { opacity: 1; transform: scale(1.06) rotateY(0); }
+  100% { opacity: 1; transform: scale(1) rotateY(0); }
+}
+@keyframes team-info-slide {
+  0%   { opacity: 0; transform: translateX(18px); }
+  100% { opacity: 1; transform: none; }
+}
+
+/* Hover treatment — both hero and grid cards lift with shadow */
+.slide[data-label="Meeting team"] .team-hero-photo,
+.slide[data-label="Meeting team"] .team-card-photo {
+  transition: transform 280ms cubic-bezier(.34,1.56,.64,1), box-shadow 280ms ease;
+  cursor: default;
+}
+.slide[data-label="Meeting team"] .team-hero:hover .team-hero-photo {
+  transform: scale(1.07);
+}
+.slide[data-label="Meeting team"] .team-card:hover .team-card-photo {
+  transform: scale(1.10) translateY(-4px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-deck-slide] .team-hero-photo,
+  [data-deck-slide] .team-hero-name,
+  [data-deck-slide] .team-hero-role,
+  [data-deck-slide] .team-hero-loc,
+  [data-deck-slide] .team-card-photo,
+  [data-deck-slide] .team-card-info {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
    Title slide: perpetual breathing orb + ring float
    ========================================================= */
 [data-deck-active] .title-orb {
