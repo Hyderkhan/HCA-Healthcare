@@ -515,6 +515,11 @@
       <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; flex: 1; align-items: stretch;">
         <!-- Multi-Tenant -->
         <div class="card" style="padding: 44px 36px; display: flex; flex-direction: column; gap: 16px;">
+          <div style="width: 56px; height: 56px; border-radius: 12px; background: var(--turq-wash); display: flex; align-items: center; justify-content: center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--turq)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M17.5 19a4.5 4.5 0 1 0 0-9h-1.8a7 7 0 1 0-11.7 6.5"/>
+            </svg>
+          </div>
           <div class="caption" style="margin-bottom: 0; color: var(--grey-7);">Standard cloud</div>
           <h3 style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 38px; line-height: 1.05; margin: 0;">Multi-Tenant</h3>
           <p style="font-size: 20px; line-height: 1.45; color: var(--grey-11); margin: 0;">Shared SAFEQ Cloud with full automation, three-zone HA, and bi-weekly updates. The default for most customers.</p>
@@ -528,6 +533,12 @@
         <!-- Reserved (RECOMMENDED) -->
         <div class="card card--orange card--recommended" style="padding: 56px 36px 44px; display: flex; flex-direction: column; gap: 16px; position: relative; box-shadow: 0 14px 40px rgba(255,102,0,0.22); transform: translateY(-12px);">
           <span class="badge-recommended" style="position: absolute; top: -18px; left: 50%; background: var(--ink); color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; padding: 8px 18px; border-radius: 4px; white-space: nowrap; z-index: 2;">★ Recommended for HCA</span>
+          <div style="width: 56px; height: 56px; border-radius: 12px; background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2 4 5v6.5c0 5 3.4 9.6 8 10.5 4.6-.9 8-5.5 8-10.5V5l-8-3z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
           <div class="caption" style="margin-bottom: 0; color: rgba(255,255,255,0.85);">Dedicated</div>
           <h3 style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 38px; line-height: 1.05; margin: 0; color: #fff;">Reserved</h3>
           <p style="font-size: 20px; line-height: 1.45; color: #fff; margin: 0; opacity: 0.96;">Dedicated VMs in a dual-zone setup, in the Y Soft–operated DC of HCA's choice. Same platform, isolated environment, premium SLA.</p>
@@ -540,6 +551,13 @@
 
         <!-- Managed On-Prem -->
         <div class="card" style="padding: 44px 36px; display: flex; flex-direction: column; gap: 16px;">
+          <div style="width: 56px; height: 56px; border-radius: 12px; background: #F2F2F2; display: flex; align-items: center; justify-content: center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="6" rx="1"/>
+              <rect x="3" y="15" width="18" height="6" rx="1"/>
+              <path d="M7 6h.01M7 18h.01"/>
+            </svg>
+          </div>
           <div class="caption" style="margin-bottom: 0; color: var(--grey-7);">Maximum control</div>
           <h3 style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 38px; line-height: 1.05; margin: 0;">Managed On-Prem</h3>
           <p style="font-size: 20px; line-height: 1.45; color: var(--grey-11); margin: 0;">SAFEQ Cloud deployed into HCA-controlled infrastructure. Print and scan data never leaves your network.</p>
