@@ -581,25 +581,28 @@
         <!-- Container grid (slots injected by JS) -->
         <div class="ctn-grid"></div>
 
-        <!-- Live event stream (typed pills with AZ tags) -->
+        <!-- Live event stream (typed pills) -->
         <div class="ctn-events-row">
           <div class="ctn-events-label">Live activity</div>
           <div class="ctn-events-flow"></div>
         </div>
 
-        <!-- Activity log + Zone load balance -->
-        <div class="ctn-bottom-row">
-          <div class="ctn-activity-log">
-            <div class="ctn-log-label">Last events</div>
-            <div class="ctn-log-list"></div>
+        <!-- Load balance across AZs — three inline bars -->
+        <div class="ctn-az-panel">
+          <div class="ctn-az-bar">
+            <span class="ctn-az-name">Zone A</span>
+            <div class="ctn-az-track"><div class="ctn-az-fill" data-az="A"></div></div>
+            <span class="ctn-az-pct" data-az-pct="A">0%</span>
           </div>
-          <div class="ctn-az-panel">
-            <div class="ctn-log-label">Load balanced across availability zones</div>
-            <div class="ctn-az-bars">
-              <div class="ctn-az-bar"><span class="ctn-az-name">Zone A</span><div class="ctn-az-track"><div class="ctn-az-fill" data-az="A"></div></div><span class="ctn-az-pct" data-az-pct="A">0%</span></div>
-              <div class="ctn-az-bar"><span class="ctn-az-name">Zone B</span><div class="ctn-az-track"><div class="ctn-az-fill" data-az="B"></div></div><span class="ctn-az-pct" data-az-pct="B">0%</span></div>
-              <div class="ctn-az-bar"><span class="ctn-az-name">Zone C</span><div class="ctn-az-track"><div class="ctn-az-fill" data-az="C"></div></div><span class="ctn-az-pct" data-az-pct="C">0%</span></div>
-            </div>
+          <div class="ctn-az-bar">
+            <span class="ctn-az-name">Zone B</span>
+            <div class="ctn-az-track"><div class="ctn-az-fill" data-az="B"></div></div>
+            <span class="ctn-az-pct" data-az-pct="B">0%</span>
+          </div>
+          <div class="ctn-az-bar">
+            <span class="ctn-az-name">Zone C</span>
+            <div class="ctn-az-track"><div class="ctn-az-fill" data-az="C"></div></div>
+            <span class="ctn-az-pct" data-az-pct="C">0%</span>
           </div>
         </div>
       </div>
@@ -1538,7 +1541,6 @@
   if (ctnSlide) {
     const grid = ctnSlide.querySelector('.ctn-grid');
     const eventsFlow = ctnSlide.querySelector('.ctn-events-flow');
-    const logList = ctnSlide.querySelector('.ctn-log-list');
     const azFills = {
       A: ctnSlide.querySelector('[data-az="A"]'),
       B: ctnSlide.querySelector('[data-az="B"]'),
@@ -1551,7 +1553,6 @@
     };
     const SLOTS = 36;
     const PEAK = 32;
-    const LOG_LIMIT = 4;
     const AZ_WINDOW = 60;
 
     for (let i = 0; i < SLOTS; i++) {
@@ -1680,30 +1681,9 @@
         if (azPctEls[n]) azPctEls[n].textContent = Math.round(pct) + '%';
       });
     }
-    function pushLogLine(type, detail, zone) {
-      const line = document.createElement('div');
-      line.className = 'ctn-log-line';
-      const ts = document.createElement('span');
-      ts.className = 'ts';
-      ts.textContent = nowStr() + '  ';
-      line.appendChild(ts);
-      const strong = document.createElement('strong');
-      strong.textContent = type;
-      line.appendChild(strong);
-      line.appendChild(document.createTextNode(' · ' + detail + ' · '));
-      const azSpan = document.createElement('span');
-      azSpan.className = 'az';
-      azSpan.textContent = zone.tag;
-      line.appendChild(azSpan);
-      logList.prepend(line);
-      while (logList.children.length > LOG_LIMIT) {
-        logList.lastElementChild.remove();
-      }
-    }
     function spawnEvent() {
       const ev = pickEvent();
       const zone = pickZone();
-      // Pill
       const pill = document.createElement('span');
       pill.className = 'ctn-event';
       pill.dataset.type = ev.type;
@@ -1714,14 +1694,8 @@
       det.className = 'ctn-event-detail';
       det.textContent = '· ' + ev.detail;
       pill.appendChild(det);
-      const az = document.createElement('span');
-      az.className = 'ctn-event-az';
-      az.textContent = zone.tag;
-      pill.appendChild(az);
       pill.addEventListener('animationend', () => pill.remove());
       eventsFlow.appendChild(pill);
-      // Log + AZ
-      pushLogLine(ev.type, ev.detail, zone);
       recordZone(zone.name);
     }
     function scheduleNext() {
@@ -1739,7 +1713,6 @@
       healCount = 0;
       azWindow = [];
       for (let i = 0; i < SLOTS; i++) setState(i, 'empty');
-      logList.replaceChildren();
       eventsFlow.replaceChildren();
       ['A', 'B', 'C'].forEach((n) => {
         if (azFills[n]) azFills[n].style.width = '0%';

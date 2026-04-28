@@ -1011,48 +1011,17 @@ body.hide-footer .footer { display: none; }
   100% { left: 110%; opacity: 0; }
 }
 
-/* Bottom row: activity log + AZ load balance */
-.ctn-bottom-row {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 32px;
-}
-.ctn-activity-log,
+/* Load balance across AZs — three inline bars in a single row */
 .ctn-az-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
   border-top: 1px solid var(--border);
-  padding-top: 10px;
+  padding-top: 12px;
 }
-.ctn-log-list {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-variant-numeric: tabular-nums;
-}
-.ctn-log-line {
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  font-size: 13px;
-  color: var(--grey-11);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  animation: ctn-log-in 380ms cubic-bezier(.22,.9,.25,1);
-}
-.ctn-log-line strong { color: var(--ink); font-weight: 700; }
-.ctn-log-line .ts    { color: var(--grey-7); }
-.ctn-log-line .az    { color: var(--orange); font-weight: 600; }
-@keyframes ctn-log-in {
-  from { opacity: 0; transform: translateX(-12px); }
-  to   { opacity: 1; transform: none; }
-}
-
-/* AZ load bars */
-.ctn-az-bars { display: flex; flex-direction: column; gap: 5px; }
 .ctn-az-bar {
   display: grid;
-  grid-template-columns: 56px 1fr 42px;
+  grid-template-columns: auto 1fr auto;
   gap: 12px;
   align-items: center;
   font-family: var(--font-sans);
@@ -1060,9 +1029,10 @@ body.hide-footer .footer { display: none; }
 .ctn-az-name {
   font-weight: 600;
   font-size: 12px;
-  letter-spacing: 0.10em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--grey-11);
+  white-space: nowrap;
 }
 .ctn-az-track {
   height: 8px;
@@ -1083,13 +1053,14 @@ body.hide-footer .footer { display: none; }
 .ctn-az-fill[data-az="C"] { background: linear-gradient(90deg, var(--ink), #444); }
 .ctn-az-pct {
   font-variant-numeric: tabular-nums;
-  font-weight: 600;
-  font-size: 13px;
-  color: var(--grey-11);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+  min-width: 36px;
   text-align: right;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ctn-slot, .ctn-event, .ctn-log-line { animation: none !important; }
+  .ctn-slot, .ctn-event { animation: none !important; }
   .ctn-slot[data-state="healthy"] { background: var(--orange); }
 }
