@@ -943,6 +943,72 @@ body.hide-footer .footer { display: none; }
 }
 
 /* =========================================================
+   Scaling slide world map: staggered pin pop + radar pings
+   ========================================================= */
+
+/* Map silhouette gently fades in */
+[data-deck-slide] .scaling-map-img { opacity: 0; }
+[data-deck-active] .scaling-map-img {
+  animation: map-fade-in 900ms ease-out 200ms both;
+}
+@keyframes map-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Each pin element animates around its own SVG center */
+[data-deck-slide] .map-pin-dot,
+[data-deck-slide] .map-pin-ping,
+[data-deck-slide] .map-pin-label {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Pin dots pop in with overshoot, staggered */
+[data-deck-slide] .map-pin-dot { opacity: 0; }
+[data-deck-active] .map-pin-dot {
+  animation: map-pin-pop 580ms cubic-bezier(.34,1.6,.64,1) calc(700ms + var(--i, 0) * 110ms) both;
+}
+@keyframes map-pin-pop {
+  0%   { opacity: 0; transform: scale(0); }
+  60%  { opacity: 1; transform: scale(1.55); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Labels rise in after their pin lands */
+[data-deck-slide] .map-pin-label { opacity: 0; }
+[data-deck-active] .map-pin-label {
+  animation: map-pin-label-in 460ms cubic-bezier(.22,.9,.25,1) calc(880ms + var(--i, 0) * 110ms) both;
+}
+@keyframes map-pin-label-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 0.92; transform: none; }
+}
+
+/* Radar ping rings — perpetual expand-and-fade once entry settled */
+[data-deck-slide] .map-pin-ping { opacity: 0; }
+[data-deck-active] .map-pin-ping {
+  animation: map-pin-ping 2.6s ease-out calc(1700ms + var(--i, 0) * 220ms) infinite;
+  fill: var(--orange);
+}
+@keyframes map-pin-ping {
+  0%   { opacity: 0.55; transform: scale(0.7); }
+  80%  { opacity: 0;    transform: scale(3.6); }
+  100% { opacity: 0;    transform: scale(3.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-deck-slide] .scaling-map-img,
+  [data-deck-slide] .map-pin-dot,
+  [data-deck-slide] .map-pin-label {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+  [data-deck-slide] .map-pin-ping { display: none; }
+}
+
+/* =========================================================
    Title slide: perpetual breathing orb + ring float
    ========================================================= */
 [data-deck-active] .title-orb {
