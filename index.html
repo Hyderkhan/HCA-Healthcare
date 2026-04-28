@@ -581,10 +581,26 @@
         <!-- Container grid (slots injected by JS) -->
         <div class="ctn-grid"></div>
 
-        <!-- Request stream (dots injected by JS) -->
-        <div class="ctn-traffic-row">
-          <div class="ctn-traffic-label">Live request stream</div>
-          <div class="ctn-traffic"></div>
+        <!-- Live event stream (typed pills with AZ tags) -->
+        <div class="ctn-events-row">
+          <div class="ctn-events-label">Live activity</div>
+          <div class="ctn-events-flow"></div>
+        </div>
+
+        <!-- Activity log + Zone load balance -->
+        <div class="ctn-bottom-row">
+          <div class="ctn-activity-log">
+            <div class="ctn-log-label">Last events</div>
+            <div class="ctn-log-list"></div>
+          </div>
+          <div class="ctn-az-panel">
+            <div class="ctn-log-label">Load balanced across availability zones</div>
+            <div class="ctn-az-bars">
+              <div class="ctn-az-bar"><span class="ctn-az-name">Zone A</span><div class="ctn-az-track"><div class="ctn-az-fill" data-az="A"></div></div><span class="ctn-az-pct" data-az-pct="A">0%</span></div>
+              <div class="ctn-az-bar"><span class="ctn-az-name">Zone B</span><div class="ctn-az-track"><div class="ctn-az-fill" data-az="B"></div></div><span class="ctn-az-pct" data-az-pct="B">0%</span></div>
+              <div class="ctn-az-bar"><span class="ctn-az-name">Zone C</span><div class="ctn-az-track"><div class="ctn-az-fill" data-az="C"></div></div><span class="ctn-az-pct" data-az-pct="C">0%</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1521,10 +1537,22 @@
   const ctnSlide = document.querySelector('section[data-label="Containers in motion"]');
   if (ctnSlide) {
     const grid = ctnSlide.querySelector('.ctn-grid');
-    const traffic = ctnSlide.querySelector('.ctn-traffic');
-    const SLOTS = 36;          // 12 × 3
-    const DOTS = 14;
+    const eventsFlow = ctnSlide.querySelector('.ctn-events-flow');
+    const logList = ctnSlide.querySelector('.ctn-log-list');
+    const azFills = {
+      A: ctnSlide.querySelector('[data-az="A"]'),
+      B: ctnSlide.querySelector('[data-az="B"]'),
+      C: ctnSlide.querySelector('[data-az="C"]'),
+    };
+    const azPctEls = {
+      A: ctnSlide.querySelector('[data-az-pct="A"]'),
+      B: ctnSlide.querySelector('[data-az-pct="B"]'),
+      C: ctnSlide.querySelector('[data-az-pct="C"]'),
+    };
+    const SLOTS = 36;
     const PEAK = 32;
+    const LOG_LIMIT = 4;
+    const AZ_WINDOW = 60;
 
     for (let i = 0; i < SLOTS; i++) {
       const s = document.createElement('div');
@@ -1532,24 +1560,50 @@
       s.dataset.state = 'empty';
       grid.appendChild(s);
     }
-    for (let i = 0; i < DOTS; i++) {
-      const d = document.createElement('div');
-      d.className = 'ctn-dot';
-      d.style.animationDelay = (i * (2.6 / DOTS)).toFixed(3) + 's';
-      traffic.appendChild(d);
-    }
-
     const slotEls = grid.querySelectorAll('.ctn-slot');
     const activeEl = ctnSlide.querySelector('.ctn-active');
     const rpsEl = ctnSlide.querySelector('.ctn-rps');
     const healsEl = ctnSlide.querySelector('.ctn-heals');
 
+    // ---- Event taxonomy ----
+    const EVENT_TYPES = [
+      { type: 'AUTH',   weight: 5, details: ['MFD-247 · card', 'card reader · MFD-181', 'SSO · iOS', 'PIN release', 'badge · macOS', 'biometric · iOS'] },
+      { type: 'PRINT',  weight: 6, details: ['4 pages · color', '1 page · b/w', '12 pages · duplex', 'OCR · macOS', 'secure release', 'guest queue', '24 pages · color'] },
+      { type: 'MFD',    weight: 2, details: ['HP M712 connected', 'Lexmark MX722 connected', 'Canon iR connected', 'Xerox AltaLink connected', 'Konica C758 connected'] },
+      { type: 'PC',     weight: 4, details: ['Win 11 · queue mapped', 'Win 11 · driver install', 'Win 10 · job submit', 'Win 11 · auth'] },
+      { type: 'MAC',    weight: 3, details: ['macOS · driver pkg', 'macOS Sequoia · auth', 'macOS · job submit', 'AirPrint replaced'] },
+      { type: 'MOBILE', weight: 3, details: ['iOS · scan workflow', 'Android · print', 'iOS · job released', 'Android · auth', 'iOS · OCR'] },
+    ];
+    // Zones with weighted distribution (drives load-balance bars)
+    const ZONES = [
+      { name: 'A', tag: 'FRA-AZ-1', weight: 0.36 },
+      { name: 'B', tag: 'FRA-AZ-2', weight: 0.34 },
+      { name: 'C', tag: 'FRA-AZ-3', weight: 0.30 },
+    ];
+    const totalEvtWeight = EVENT_TYPES.reduce((s, e) => s + e.weight, 0);
+    function pickEvent() {
+      let r = Math.random() * totalEvtWeight;
+      for (const e of EVENT_TYPES) {
+        r -= e.weight;
+        if (r < 0) return { type: e.type, detail: e.details[Math.floor(Math.random() * e.details.length)] };
+      }
+      return { type: EVENT_TYPES[0].type, detail: EVENT_TYPES[0].details[0] };
+    }
+    function pickZone() {
+      let r = Math.random();
+      for (const z of ZONES) { r -= z.weight; if (r < 0) return z; }
+      return ZONES[0];
+    }
+
+    // ---- Container state ----
     let active = new Set();
     let healCount = 0;
-    let timer = null;
+    let stateTimer = null;
+    let evtTimer = null;
     let startMs = 0;
     let lastSpawn = 0;
     let lastFail = 0;
+    let azWindow = []; // sliding window of recent zones used
 
     const setState = (i, st) => { slotEls[i].dataset.state = st; };
     const pickEmpty = () => {
@@ -1607,20 +1661,102 @@
       }
       updateCounters();
     }
+
+    // ---- Event spawner: pills + log + AZ tracker ----
+    function pad2(n) { return String(n).padStart(2, '0'); }
+    function nowStr() {
+      const t = new Date();
+      return pad2(t.getHours()) + ':' + pad2(t.getMinutes()) + ':' + pad2(t.getSeconds());
+    }
+    function recordZone(zoneName) {
+      azWindow.push(zoneName);
+      if (azWindow.length > AZ_WINDOW) azWindow.shift();
+      const counts = { A: 0, B: 0, C: 0 };
+      azWindow.forEach((z) => counts[z]++);
+      const total = azWindow.length || 1;
+      ['A', 'B', 'C'].forEach((n) => {
+        const pct = (counts[n] / total) * 100;
+        if (azFills[n]) azFills[n].style.width = pct.toFixed(1) + '%';
+        if (azPctEls[n]) azPctEls[n].textContent = Math.round(pct) + '%';
+      });
+    }
+    function pushLogLine(type, detail, zone) {
+      const line = document.createElement('div');
+      line.className = 'ctn-log-line';
+      const ts = document.createElement('span');
+      ts.className = 'ts';
+      ts.textContent = nowStr() + '  ';
+      line.appendChild(ts);
+      const strong = document.createElement('strong');
+      strong.textContent = type;
+      line.appendChild(strong);
+      line.appendChild(document.createTextNode(' · ' + detail + ' · '));
+      const azSpan = document.createElement('span');
+      azSpan.className = 'az';
+      azSpan.textContent = zone.tag;
+      line.appendChild(azSpan);
+      logList.prepend(line);
+      while (logList.children.length > LOG_LIMIT) {
+        logList.lastElementChild.remove();
+      }
+    }
+    function spawnEvent() {
+      const ev = pickEvent();
+      const zone = pickZone();
+      // Pill
+      const pill = document.createElement('span');
+      pill.className = 'ctn-event';
+      pill.dataset.type = ev.type;
+      pill.style.setProperty('--dur', (2.4 + Math.random() * 1.4).toFixed(2) + 's');
+      pill.style.setProperty('--top-offset', ((Math.random() - 0.5) * 12).toFixed(1) + 'px');
+      pill.appendChild(document.createTextNode(ev.type));
+      const det = document.createElement('span');
+      det.className = 'ctn-event-detail';
+      det.textContent = '· ' + ev.detail;
+      pill.appendChild(det);
+      const az = document.createElement('span');
+      az.className = 'ctn-event-az';
+      az.textContent = zone.tag;
+      pill.appendChild(az);
+      pill.addEventListener('animationend', () => pill.remove());
+      eventsFlow.appendChild(pill);
+      // Log + AZ
+      pushLogLine(ev.type, ev.detail, zone);
+      recordZone(zone.name);
+    }
+    function scheduleNext() {
+      const delay = 250 + Math.random() * 350; // 250–600 ms
+      evtTimer = setTimeout(() => {
+        if (evtTimer === null) return; // stopped
+        spawnEvent();
+        scheduleNext();
+      }, delay);
+    }
+
     function startAnim() {
-      if (timer) return;
+      if (stateTimer) return;
       active.clear();
       healCount = 0;
+      azWindow = [];
       for (let i = 0; i < SLOTS; i++) setState(i, 'empty');
+      logList.replaceChildren();
+      eventsFlow.replaceChildren();
+      ['A', 'B', 'C'].forEach((n) => {
+        if (azFills[n]) azFills[n].style.width = '0%';
+        if (azPctEls[n]) azPctEls[n].textContent = '0%';
+      });
       updateCounters();
       startMs = performance.now();
       lastSpawn = startMs;
       lastFail = startMs;
-      timer = setInterval(tick, 180);
+      stateTimer = setInterval(tick, 180);
       tick();
+      // Begin event stream after a short delay so containers spawn first
+      evtTimer = setTimeout(() => { scheduleNext(); }, 600);
     }
     function stopAnim() {
-      if (timer) { clearInterval(timer); timer = null; }
+      if (stateTimer) { clearInterval(stateTimer); stateTimer = null; }
+      if (evtTimer) { clearTimeout(evtTimer); evtTimer = null; }
     }
 
     deck.addEventListener('slidechange', (e) => {
