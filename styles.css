@@ -857,6 +857,34 @@ body.hide-footer .footer { display: none; }
 }
 
 /* =========================================================
+   Title slide: perpetual breathing orb + ring float
+   ========================================================= */
+[data-deck-active] .title-orb {
+  animation: deck-zoom 900ms cubic-bezier(.22,.9,.25,1) 0ms both,
+             title-orb-breathe 8.5s ease-in-out 1400ms infinite;
+}
+[data-deck-active] .title-ring {
+  animation: deck-zoom 1200ms cubic-bezier(.22,.9,.25,1) 200ms both,
+             title-ring-drift 14s ease-in-out 1500ms infinite;
+}
+@keyframes title-orb-breathe {
+  0%, 100% { transform: scale(1)    translate(0, 0); }
+  50%      { transform: scale(1.04) translate(-12px, -8px); }
+}
+@keyframes title-ring-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(18px, 24px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-deck-active] .title-orb,
+  [data-deck-active] .title-ring {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
    Containers in motion — animated stage
    Live container grid + traffic stream + counters
    ========================================================= */
